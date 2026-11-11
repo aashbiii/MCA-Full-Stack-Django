@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Zoom on Hover</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+        }
+
+        .img-box {
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+            margin: 50px auto;
+            border: 2px solid black;
+        }
+
+        .img-box img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s;
+        }
+
+        .img-box img:hover {
+            transform: scale(1.5);
+        }
+    </style>
+
+    <script>
+        function disableRightClick() {
+            alert("Right click is disabled");
+            return false;
+        }
+    </script>
+</head>
+
+<body oncontextmenu="return disableRightClick()">
+
+    <h2>Image Zoom on Hover</h2>
+
+    <div class="img-box">
+        <img src="image.jpg" alt="Sample Image">
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pricing Table</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Segoe UI, Arial, sans-serif;
+            background: #f4f7fb;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .pricing {
+            display: flex;
+            gap: 25px;
+        }
+
+        .plan {
+            background: white;
+            width: 220px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .plan h2 {
+            margin: 0;
+            color: #34495e;
+        }
+
+        .price {
+            font-size: 28px;
+            margin: 15px 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .features li {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .features li:last-child {
+            border: none;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            background: #2980b9;
+            color: white;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .highlight {
+            transform: scale(1.08);
+            background: #2980b9;
+            color: white;
+        }
+
+        .highlight .price {
+            color: white;
+        }
+
+        .highlight button {
+            background: white;
+            color: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Cloud Storage Plans</h1>
+    <div class="pricing">
+        <div class="plan">
+            <h2>Basic</h2>
+            <div class="price">₹199/mo</div>
+            <ul class="features">
+                <li>50 GB Storage</li>
+                <li>1 User</li>
+                <li>Email Support</li>
+                <li>Basic Security</li>
+            </ul>
+            <button>Select</button>
+        </div>
+        <div class="plan highlight">
+            <h2>Professional</h2>
+            <div class="price">₹499/mo</div>
+            <ul class="features">
+                <li>200 GB Storage</li>
+                <li>5 Users</li>
+                <li>Priority Support</li>
+                <li>Advanced Security</li>
+            </ul>
+            <button>Select</button>
+        </div>
+        <div class="plan">
+            <h2>Enterprise</h2>
+            <div class="price">₹999/mo</div>
+            <ul class="features">
+                <li>1 TB Storage</li>
+                <li>Unlimited Users</li>
+                <li>24/7 Support</li>
+                <li>Full Security</li>
+            </ul>
+            <button>Select</button>
+        </div>
+    </div>
+</body>
+
+</html>

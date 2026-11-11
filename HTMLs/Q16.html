@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pro UI - Bootstrap + Material</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Roboto, sans-serif;
+            background: #f4f6fb;
+        }
+
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 500;
+            color: #5f63f2;
+        }
+
+        .layout {
+            display: flex;
+            min-height: calc(100vh - 56px);
+        }
+
+        .sidebar {
+            width: 240px;
+            background: #ffffff;
+            padding: 20px;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar .mdc-button {
+            width: 100%;
+            justify-content: flex-start;
+            margin-bottom: 12px;
+            border-radius: 10px;
+        }
+
+        .main {
+            flex: 1;
+            padding: 25px;
+        }
+
+        .mdc-card {
+            padding: 20px;
+            border-radius: 16px;
+            height: 100%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .stat {
+            font-size: 28px;
+            font-weight: 500;
+            color: #5f63f2;
+        }
+
+        .label {
+            color: #6c757d;
+            font-size: 14px;
+        }
+
+        .action-card {
+            background: linear-gradient(135deg, #5f63f2, #7a7ff6);
+            color: white;
+        }
+
+        .action-card .mdc-button {
+            background: white;
+            color: #5f63f2;
+            border-radius: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background: white;
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg px-4">
+        <a class="navbar-brand" href="#">ProDashboard</a>
+        <div class="ms-auto">
+            <button class="btn btn-outline-primary">Profile</button>
+        </div>
+    </nav>
+
+    <div class="layout">
+
+        <div class="sidebar">
+            <button class="mdc-button mdc-button--raised">
+                <span class="mdc-button__label">Overview</span>
+            </button>
+            <button class="mdc-button mdc-button--outlined">
+                <span class="mdc-button__label">Customers</span>
+            </button>
+            <button class="mdc-button mdc-button--outlined">
+                <span class="mdc-button__label">Orders</span>
+            </button>
+            <button class="mdc-button mdc-button--outlined">
+                <span class="mdc-button__label">Analytics</span>
+            </button>
+            <button class="mdc-button mdc-button--outlined">
+                <span class="mdc-button__label">Settings</span>
+            </button>
+        </div>
+
+        <div class="main">
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+                    <div class="mdc-card">
+                        <div>
+                            <div class="stat">1,250</div>
+                            <div class="label">Total Users</div>
+                        </div>
+                        <button class="mdc-button mdc-button--outlined">
+                            <span class="mdc-button__label">View Users</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="mdc-card">
+                        <div>
+                            <div class="stat">$8,430</div>
+                            <div class="label">Revenue</div>
+                        </div>
+                        <button class="mdc-button mdc-button--outlined">
+                            <span class="mdc-button__label">View Report</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="mdc-card">
+                        <div>
+                            <div class="stat">320</div>
+                            <div class="label">Orders</div>
+                        </div>
+                        <button class="mdc-button mdc-button--outlined">
+                            <span class="mdc-button__label">Manage Orders</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="mdc-card action-card">
+                        <div>
+                            <h4>Launch New Campaign</h4>
+                            <p>Create and manage marketing campaigns easily.</p>
+                        </div>
+                        <button class="mdc-button mdc-button--raised">
+                            <span class="mdc-button__label">Create Campaign</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        Professional UI using Bootstrap 5 and Material Design
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script>
+        mdc.autoInit();
+    </script>
+
+</body>
+
+</html>

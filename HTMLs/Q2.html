@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mentor Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #eef2f6;
+            color: #2c3e50;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        header {
+            background: #ffffff;
+            padding: 18px 30px;
+            font-size: 26px;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            animation: slideDown 1s ease;
+        }
+
+        @keyframes slideDown {
+            0% {
+                transform: translateY(-60px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .container {
+            display: flex;
+            height: 85vh;
+        }
+
+        .sidebar {
+            width: 240px;
+            background: #ffffff;
+            padding: 20px;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+            animation: fadeIn 2s;
+        }
+
+        .menu {
+            padding: 12px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .menu:hover {
+            background: #dce3ea;
+            transform: translateX(8px);
+        }
+
+        .content {
+            flex: 1;
+            padding: 30px;
+            animation: fadeIn 2.5s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cards {
+            display: flex;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 20px;
+            width: 220px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.18);
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 12px 22px;
+            border: none;
+            background: #5a7fa6;
+            color: white;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #466585;
+            transform: scale(1.08);
+        }
+
+        .profile {
+            margin-top: 25px;
+            background: white;
+            padding: 18px;
+            width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .profile:hover {
+            transform: translateX(10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.18);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        Mentor Dashboard
+    </header>
+    <div class="container">
+        <div class="sidebar">
+            <div class="menu">Dashboard</div>
+            <div class="menu">Students</div>
+            <div class="menu">Attendance</div>
+            <div class="menu">Reports</div>
+            <div class="menu">Settings</div>
+            <div class="menu">Logout</div>
+        </div>
+        <div class="content">
+            <h2>Welcome, Dr. Mentor</h2>
+            <p>Monitor student progress, attendance and performance easily.</p>
+            <div class="cards">
+                <div class="card">
+                    <h3>Total Students</h3>
+                    <p>52 Students</p>
+                </div>
+                <div class="card">
+                    <h3>Attendance</h3>
+                    <p>Average 91%</p>
+                </div>
+                <div class="card">
+                    <h3>Pending Reports</h3>
+                    <p>8 Reports</p>
+                </div>
+            </div>
+            <button>
+                View Detailed Report
+            </button>
+            <div class="profile">
+                <h3>Mentor Profile</h3>
+                <p>Name: Dr. John Mathew</p>
+                <p>Department: Computer Science</p>
+                <p>Email: mentor@college.edu</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

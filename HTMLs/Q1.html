@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Essentials | Cheat Sheet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: 14 89% 53%;
+            --secondary: 220 15% 20%;
+            --surface-1: 0 0% 98%;
+            --surface-2: 0 0% 100%;
+            --text-1: 220 15% 10%;
+            --text-2: 220 10% 40%;
+            --code-bg: 220 15% 94%;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --font-body: 'Inter', system-ui, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: hsl(var(--surface-1));
+            color: hsl(var(--text-1));
+            line-height: 1.5;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: hsl(var(--primary));
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 3vw, 2.5rem);
+            color: hsl(var(--text-1));
+        }
+
+        code {
+            font-family: var(--font-mono);
+            background: hsl(var(--code-bg));
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #d03d3d;
+        }
+
+        .container {
+            width: min(94%, 1200px);
+            margin-inline: auto;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            padding-block: 1rem;
+            background-color: hsl(var(--surface-2));
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: auto;
+            flex-direction: row;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: hsl(var(--primary));
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        main {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1.8fr 1.2fr;
+            grid-template-rows: auto 1fr;
+            gap: 1.5rem;
+            padding-block: 1.5rem;
+            min-height: 0;
+        }
+
+        .hero {
+            grid-column: 1 / -1;
+            background: hsl(var(--secondary));
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+        }
+
+        .hero h1 {
+            color: white;
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .hero p {
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .btn {
+            background: hsl(var(--primary));
+            color: white;
+            padding: 0.6em 1.2em;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid transparent;
+        }
+
+        section {
+            background: hsl(var(--surface-2));
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow);
+            overflow-y: auto;
+        }
+
+        .command-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .command-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+        }
+
+        .command-item:last-child {
+            border-bottom: none;
+        }
+
+        .command-item strong {
+            font-family: var(--font-mono);
+            color: hsl(var(--text-1));
+            font-size: 1em;
+        }
+
+        .command-item span {
+            font-size: 0.9rem;
+            color: hsl(var(--text-2));
+        }
+
+        aside h3 {
+            color: hsl(var(--primary));
+            border-bottom: 2px solid hsl(var(--surface-1));
+            padding-bottom: 0.5rem;
+        }
+
+        aside ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        aside li {
+            display: flex;
+            gap: 0.5rem;
+            align-items: baseline;
+            font-size: 0.9rem;
+        }
+
+        aside li::before {
+            content: '✓';
+            color: hsl(var(--primary));
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.85rem;
+            color: hsl(var(--text-2));
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            margin-top: auto;
+            flex-shrink: 0;
+        }
+
+        @media (max-width:800px) {
+            body {
+                overflow-y: auto;
+                height: auto;
+            }
+
+            main {
+                grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header role="banner">
+        <div class="container" style="flex-direction:row;height:auto;">
+            <div class="header-inner" style="width:100%;">
+                <div class="logo"><span>//</span> GitCheatSheet</div>
+                <nav role="navigation">
+                    <ul>
+                        <li><a href="#">Setup</a></li>
+                        <li><a href="#">Commands</a></li>
+                        <li><a href="#">Branching</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <main role="main">
+            <article class="hero">
+                <div>
+                    <h1>Master Version Control</h1>
+                    <p>Git is the distributed version control system that tracks changes in your source code during
+                        software development.</p>
+                </div>
+                <a href="#" class="btn">Download PDF</a>
+            </article>
+            <section aria-labelledby="core-cmds">
+                <h2 id="core-cmds">Core Workflow</h2>
+                <div class="command-list">
+                    <div class="command-item">
+                        <strong>git init</strong>
+                        <span>Initialize a new repository in the current folder.</span>
+                    </div>
+                    <div class="command-item">
+                        <strong>git add .</strong>
+                        <span>Stage all modified files for the next commit.</span>
+                    </div>
+                    <div class="command-item">
+                        <strong>git commit -m "message"</strong>
+                        <span>Commit staged changes with a descriptive message.</span>
+                    </div>
+                    <div class="command-item">
+                        <strong>git status</strong>
+                        <span>Show the status of changes as untracked, modified, or staged.</span>
+                    </div>
+                    <div class="command-item">
+                        <strong>git push origin main</strong>
+                        <span>Upload local repository content to a remote repository.</span>
+                    </div>
+                </div>
+            </section>
+            <aside role="complementary">
+                <h3>Pro Tips & Flags</h3>
+                <ul>
+                    <li><span><b>Undo staging:</b> Use <code>git restore --staged &lt;file&gt;</code> to unstage.</span>
+                    </li>
+                    <li><span><b>Amend commit:</b> Use <code>git commit --amend</code> to fix the last commit
+                            message.</span></li>
+                    <li><span><b>Discard changes:</b> Use <code>git checkout .</code> to discard all local
+                            changes.</span></li>
+                    <li><span><b>Log history:</b> Use <code>git log --oneline</code> for a compact history view.</span>
+                    </li>
+                </ul>
+                <div
+                    style="margin-top:1.0rem;padding:1rem;background:#fff4e6;border-radius:8px;border:1px solid #ffe8cc;">
+                    <h4 style="color:#d9480f;margin-bottom:0.5rem;font-size:0.95rem;">💡 Remember .gitignore</h4>
+                    <p style="font-size:0.85rem;color:#666;">Always restart your repo by creating a .gitignore file to
+                        exclude node_modules or .env files.</p>
+                </div>
+            </aside>
+        </main>
+    </div>
+    <footer role="contentinfo">
+        &copy; 2026 Developer Essentials. Built with Semantic HTML5.
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Toggle Password Visibility</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 80px;
+            background-color: #f2f2f2;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        input[type=password], input[type=text] {
+            padding: 10px;
+            width: 250px;
+            font-size: 16px;
+            border: 2px solid #007bff;
+            border-radius: 6px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            margin-left: 10px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Toggle Password Visibility</h2>
+
+<input type="password" id="passwordInput" placeholder="Enter your password">
+<button onclick="togglePassword()">Show</button>
+
+<script>
+function togglePassword() {
+    let passwordField = document.getElementById("passwordInput");
+    let button = event.target;
+
+    if(passwordField.type === "password") {
+        passwordField.type = "text";
+        button.innerText = "Hide";
+    } else {
+        passwordField.type = "password";
+        button.innerText = "Show";
+    }
+}
+</script>
+
+</body>
+</html>

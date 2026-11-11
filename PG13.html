@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Validation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #eef2f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 400px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .input_box {
+            padding: 12px;
+            margin: 10px 0;
+            width: 80%;
+            font-size: 16px;
+            border: 1.5px solid #007bff;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .input_box:focus {
+            border-color: #28a745;
+            box-shadow: 0 0 5px rgba(40,167,69,0.5);
+            outline: none;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            margin-top: 15px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        #result {
+            font-size: 18px;
+            margin-top: 25px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Email Validation</h2>
+
+    <input type="text" class="input_box" id="email" placeholder="Enter your email">
+    <br>
+    <button onclick="validateEmail()">Validate</button>
+
+    <p id="result"></p>
+</div>
+
+<script>
+    function validateEmail() {
+        let email = document.getElementById("email").value;
+        let regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+        let result = document.getElementById("result");
+        if(regex.test(email)) {
+            result.innerText = "Valid Email!";
+            result.style.color = "green";
+        } else {
+            result.innerText = "Invalid Email!";
+            result.style.color = "red";
+        }
+    }
+</script>
+
+</body>
+</html>

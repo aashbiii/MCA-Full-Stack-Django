@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quadratic Equation Solver</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            background-color: #f2f2f2;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        input[type=number] {
+            padding: 10px;
+            width: 80px;
+            font-size: 16px;
+            border: 2px solid #007bff;
+            border-radius: 6px;
+            margin: 5px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 6px;
+            background-color: #007bff;
+            color: white;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Quadratic Equation Solver</h2>
+
+<p>Equation: ax² + bx + c = 0</p>
+
+<input type="number" id="a" placeholder="a">
+<input type="number" id="b" placeholder="b">
+<input type="number" id="c" placeholder="c">
+<br>
+<button onclick="solveQuadratic()">Solve</button>
+
+<p id="result"></p>
+
+<script>
+function solveQuadratic() {
+    let a = parseFloat(document.getElementById("a").value);
+    let b = parseFloat(document.getElementById("b").value);
+    let c = parseFloat(document.getElementById("c").value);
+
+    if(isNaN(a) || isNaN(b) || isNaN(c)) {
+        document.getElementById("result").innerText = "Please enter valid numbers for a, b, and c!";
+        return;
+    }
+
+    if(a === 0) {
+        document.getElementById("result").innerText = "This is not a quadratic equation (a cannot be 0).";
+        return;
+    }
+
+    let discriminant = b*b - 4*a*c;
+    let resultText = "";
+
+    if(discriminant > 0) {
+        let root1 = Math.round((-b + Math.sqrt(discriminant)) / (2*a));
+        let root2 = Math.round((-b - Math.sqrt(discriminant)) / (2*a));
+        resultText = `Roots are real and distinct: Root1 = ${root1}, Root2 = ${root2}`;
+    } else if(discriminant === 0) {
+        let root = Math.round(-b / (2*a));
+        resultText = `Roots are real and equal: Root = ${root}`;
+    } else {
+        let realPart = Math.round(-b / (2*a));
+        let imaginaryPart = Math.round(Math.sqrt(-discriminant) / (2*a));
+        resultText = `Roots are complex: Root1 = ${realPart} + ${imaginaryPart}i, Root2 = ${realPart} - ${imaginaryPart}i`;
+    }
+
+    document.getElementById("result").innerText = resultText;
+}
+</script>
+
+</body>
+</html>

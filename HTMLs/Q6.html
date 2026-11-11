@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form Validation</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Segoe UI, Arial, sans-serif;
+            background: #eef2f7;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-box {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 320px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing:border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: #3498db;
+            color: white;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .success {
+            color: green;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-box">
+        <h2>User Registration</h2>
+        <form onsubmit="return validateForm()">
+            <input type="text" id="name" placeholder="Full Name">
+            <input type="email" id="email" placeholder="Email">
+            <input type="password" id="password" placeholder="Password">
+            <input type="password" id="confirm" placeholder="Confirm Password">
+            <button type="submit">Register</button>
+            <div id="message"></div>
+        </form>
+    </div>
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var confirm = document.getElementById("confirm").value;
+            var message = document.getElementById("message");
+            if (name == "" || email == "" || password == "" || confirm == "") {
+                message.innerHTML = "All fields are required";
+                message.className = "error";
+                return false;
+            }
+            if (password.length < 6) {
+                message.innerHTML = "Password must be at least 6 characters";
+                message.className = "error";
+                return false;
+            }
+            if (password != confirm) {
+                message.innerHTML = "Passwords do not match";
+                message.className = "error";
+                return false;
+            }
+            message.innerHTML = "Registration Successful";
+            message.className = "success";
+            return false;
+        }
+    </script>
+</body>
+
+</html>

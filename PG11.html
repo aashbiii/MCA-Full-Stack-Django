@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find Larger Number</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #eef2f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 400px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .input_box {
+            padding: 12px;
+            margin: 10px 0;
+            width: 80%;
+            font-size: 16px;
+            border: 1.5px solid #007bff;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .input_box:focus {
+            border-color: #28a745;
+            box-shadow: 0 0 5px rgba(40,167,69,0.5);
+            outline: none;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            margin-top: 15px;
+            cursor: pointer;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #1e7e34;
+            transform: scale(1.05);
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 25px;
+            color: #333;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Find the Larger Number</h2>
+
+    <input type="number" class="input_box" id="num1" placeholder="Enter first number">
+    <input type="number" class="input_box" id="num2" placeholder="Enter second number">
+    <br>
+    <button onclick="findLarger()">Find Larger</button>
+
+    <p id="result"></p>
+</div>
+
+<script>
+    function findLarger() {
+        let a = parseFloat(document.getElementById("num1").value);
+        let b = parseFloat(document.getElementById("num2").value);
+
+        if(isNaN(a) || isNaN(b)) {
+            document.getElementById("result").innerText = "Please enter both numbers!";
+            return;
+        }
+
+        if(a > b) {
+            document.getElementById("result").innerText = `${a} is larger.`;
+        } else if(b > a) {
+            document.getElementById("result").innerText = `${b} is larger.`;
+        } else {
+            document.getElementById("result").innerText = "Both numbers are equal.";
+        }
+    }
+</script>
+
+</body>
+</html>

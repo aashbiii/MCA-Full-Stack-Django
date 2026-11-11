@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Material Dashboard</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Roboto;
+            background: #f4f6fb;
+        }
+
+        .mdc-top-app-bar {
+            background: #6750a4;
+            position: static;
+        }
+
+        .profile {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            margin: 15px;
+            border-radius: 10px;
+        }
+
+        .profile img {
+            width: 70px;
+            border-radius: 50%;
+            margin-bottom: 5px;
+        }
+
+        .profile h3 {
+            margin: 5px 0 0 0;
+        }
+
+        .profile p {
+            margin: 2px 0 10px 0;
+            color: #666;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            padding: 0 15px;
+            margin-bottom: 15px;
+        }
+
+        .stat-card {
+            padding: 15px;
+            text-align: center;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            font-size: 22px;
+            font-weight: 500;
+            color: #6750a4;
+        }
+
+        .container {
+            padding: 0 15px 15px 15px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .mdc-card {
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .card-img {
+            height: 130px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-content {
+            padding: 12px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .card-text {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background: #e0e0e0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="mdc-top-app-bar">
+        <div class="mdc-top-app-bar__row">
+            <section class="mdc-top-app-bar__section">
+                <span class="mdc-top-app-bar__title">
+                    Material Dashboard
+                </span>
+            </section>
+        </div>
+    </header>
+    <div class="profile">
+        <img src="c:\Users\ASUS\Downloads\IMG.jpg" alt="Profile Picture">
+        <h3>Ashbi Saju</h3>
+        <p>Software Developer</p>
+        <button class="mdc-button mdc-button--raised">
+            <span class="mdc-button__label">Edit Profile</span>
+        </button>
+    </div>
+    <div class="stats">
+        <div class="stat-card">
+            <span class="material-icons">folder</span>
+            <div class="stat-number">12</div>
+            Projects
+        </div>
+        <div class="stat-card">
+            <span class="material-icons">groups</span>
+            <div class="stat-number">48</div>
+            Users
+        </div>
+        <div class="stat-card">
+            <span class="material-icons">task</span>
+            <div class="stat-number">76</div>
+            Tasks
+        </div>
+        <div class="stat-card">
+            <span class="material-icons">bar_chart</span>
+            <div class="stat-number">92%</div>
+            Performance
+        </div>
+    </div>
+    <div class="container">
+        <div class="mdc-card">
+            <div class="card-img" style="background-image:url('https://source.unsplash.com/400x200/?mobile')">
+            </div>
+            <div class="card-content">
+                <div class="card-title">
+                    Mobile App Design
+                </div>
+                <div class="card-text">
+                    Build modern apps.
+                </div>
+                <button class="mdc-button mdc-button--raised">
+                    <span class="mdc-button__label">View</span>
+                </button>
+            </div>
+        </div>
+        <div class="mdc-card">
+            <div class="card-img" style="background-image:url('https://source.unsplash.com/400x200/?website')">
+            </div>
+            <div class="card-content">
+                <div class="card-title">
+                    Web Development
+                </div>
+                <div class="card-text">
+                    Create websites.
+                </div>
+                <button class="mdc-button mdc-button--raised">
+                    <span class="mdc-button__label">Explore</span>
+                </button>
+            </div>
+        </div>
+        <div class="mdc-card">
+            <div class="card-img" style="background-image:url('https://source.unsplash.com/400x200/?cloud')">
+            </div>
+            <div class="card-content">
+                <div class="card-title">
+                    Cloud Services
+                </div>
+                <div class="card-text">
+                    Deploy apps.
+                </div>
+                <button class="mdc-button mdc-button--raised">
+                    <span class="mdc-button__label">Start</span>
+                </button>
+            </div>
+        </div>
+        <div class="mdc-card">
+            <div class="card-img" style="background-image:url('https://source.unsplash.com/400x200/?ai')">
+            </div>
+            <div class="card-content">
+                <div class="card-title">
+                    Artificial Intelligence
+                </div>
+                <div class="card-text">
+                    Build AI systems.
+                </div>
+                <button class="mdc-button mdc-button--raised">
+                    <span class="mdc-button__label">Learn</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        © 2026 MCA Lab Record
+    </div>
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script>
+        mdc.autoInit();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smooth Scroll</title>
+    <style>
+        html {
+            scroll-behavior: smooth; /* Enables smooth scrolling */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f0f4f8;
+        }
+
+        /* Sticky Menu */
+        .menu {
+            background-color: rgba(33, 150, 243, 0.9);
+            padding: 15px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .menu a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: #ffeb3b;
+            transform: scale(1.1);
+        }
+
+        /* Sections */
+        .section {
+            height: 600px;
+            padding: 40px 30px;
+            margin: 70px auto;
+            border-radius: 12px;
+            max-width: 800px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            transition: 0.3s;
+        }
+
+        .section h2 {
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+
+        .section p {
+            font-size: 20px;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        #home { background-color: #ffccf9; }
+        #about { background-color: #ccf9ff; }
+        #contact { background-color: #ccffc2; }
+
+        /* Optional: hover effect on sections */
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Menu -->
+<div class="menu">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+</div>
+
+<!-- Sections -->
+<div id="home" class="section">
+    <h2>Home Section</h2>
+    <p>Welcome to our website! Scroll down to learn more about us and get in touch. Enjoy smooth scrolling navigation and a modern design.</p>
+</div>
+
+<div id="about" class="section">
+    <h2>About Section</h2>
+    <p>We are passionate about delivering high-quality web experiences. Our team focuses on combining design and functionality to create beautiful websites.</p>
+</div>
+
+<div id="contact" class="section">
+    <h2>Contact Section</h2>
+    <p>Have questions or want to collaborate? Reach out to us through our contact form or email. We’re always happy to connect!</p>
+</div>
+
+</body>
+</html>

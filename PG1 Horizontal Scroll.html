@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Horizontal Scroll Snap — Demo</title>
+  <style>
+    :root{
+      --bg: #0f172a;
+      --card: #0ea5a4;
+      --muted: #94a3b8;
+      --gap: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
+    body{display:flex;align-items:center;justify-content:center;padding:32px;background:linear-gradient(180deg,#071026 0%, #0b1b2b 100%);color:#e6eef8}
+
+    .wrap{width:100%;max-width:1100px}
+
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+    header h1{font-size:18px;margin:0}
+    header p{margin:0;color:var(--muted);font-size:13px}
+
+    .controls{display:flex;gap:8px;align-items:center}
+    .btn{
+      appearance:none;border:0;padding:10px 14px;border-radius:10px;background:rgba(255,255,255,0.06);color:inherit;cursor:pointer;font-weight:600;backdrop-filter:blur(4px);
+      box-shadow:0 2px 0 rgba(0,0,0,0.25);transition:transform .12s ease, background .12s ease
+    }
+    .btn:active{transform:translateY(1px)}
+
+    /* The horizontally scrollable area */
+    .scroll-viewport{
+      display:flex; /* children flow horizontally */
+      gap:var(--gap);
+      overflow-x:auto; /* enables horizontal scrolling */
+      padding:20px 12px;
+      scroll-snap-type: x mandatory; /* <- key property for snap */
+      -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+      scrollbar-width: thin; /* Firefox */
+      background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:14px;
+    }
+
+    /* Optional: nice thin scrollbar styling for webkit */
+    .scroll-viewport::-webkit-scrollbar{height:10px}
+    .scroll-viewport::-webkit-scrollbar-track{background:transparent}
+    .scroll-viewport::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.08);border-radius:10px}
+
+    /* Each child is a card. Important: prevent it from shrinking */
+    .card{
+      flex: 0 0 calc(55% - var(--gap)); /* width of each snap point (tweakable) */
+      min-width:260px; /* lower bound on small screens */
+      max-width:420px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      padding:18px;border-radius:12px;scroll-snap-align:center; /* <- where the viewport will snap */
+      box-shadow: 0 6px 18px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    /* Make cards look different using nth-child for demo */
+    .card h2{margin:0 0 8px;font-size:18px}
+    .card p{margin:0;color:var(--muted);font-size:14px;line-height:1.45}
+
+    .tag{display:inline-block;margin-top:12px;padding:6px 10px;border-radius:999px;font-size:13px;font-weight:700;background:rgba(0,0,0,0.18)}
+
+    /* Responsive behaviour: on very wide screens show more of a card (smaller snap width) */
+    @media(min-width:1200px){
+      .card{flex-basis:calc(33.333% - var(--gap));}
+    }
+    @media(min-width:1600px){
+      .card{flex-basis:calc(25% - var(--gap));}
+    }
+
+    /* Accessibility: focus outline for keyboard users */
+    .card:focus{outline:3px solid rgba(14,165,164,0.18);outline-offset:4px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Horizontal Scroll Snap Demo</h1>
+        <p>Scroll horizontally — the viewport will snap to each card.</p>
+      </div>
+      <div class="controls">
+        <button class="btn" id="prev" aria-label="Scroll to previous">◀ Prev</button>
+        <button class="btn" id="next" aria-label="Scroll to next">Next ▶</button>
+      </div>
+    </header>
+
+    <div class="scroll-viewport" id="viewport" tabindex="0" aria-label="Scrollable list of cards">
+      <article class="card" tabindex="0">
+        <h2>Card — Introduction</h2>
+        <p>This is a demo card. The container uses <code>scroll-snap-type: x mandatory</code> and each card uses <code>scroll-snap-align: center</code>.</p>
+        <span class="tag">Intro</span>
+      </article>
+
+      <article class="card" tabindex="0">
+        <h2>Card — Features</h2>
+        <p>Works with mouse wheel (with Shift), touch swipe, and trackpad. It’s responsive and keyboard-focusable.</p>
+        <span class="tag">Features</span>
+      </article>
+
+      <article class="card" tabindex="0">
+        <h2>Card — Layout</h2>
+        <p>Cards are flexible width. On larger screens multiple cards will appear partially, but snapping still centers one card at a time.</p>
+        <span class="tag">Layout</span>
+      </article>
+
+      <article class="card" tabindex="0">
+        <h2>Card — Accessibility</h2>
+        <p>Each card is keyboard-focusable. Buttons control smooth scrolling. Use Tab to focus a card then press Arrow keys to move focus if needed.</p>
+        <span class="tag">A11y</span>
+      </article>
+
+      <article class="card" tabindex="0">
+        <h2>Card — Try Me</h2>
+        <p>Use the Next and Prev buttons to move between cards programmatically (smooth scroll), or simply swipe/scroll to see native CSS snapping.</p>
+        <span class="tag">Demo</span>
+      </article>
+    </div>
+  </div>
+
+  <script>
+    // Small helper to move the viewport by one card width (visible area)
+    (function(){
+      const viewport = document.getElementById('viewport');
+      const nextBtn = document.getElementById('next');
+      const prevBtn = document.getElementById('prev');
+
+      function scrollByViewport(direction = 1){
+        // Move by roughly the width of the viewport (so new card is centered)
+        const distance = Math.round(viewport.clientWidth * 0.85) * direction;
+        viewport.scrollBy({left: distance, behavior: 'smooth'});
+      }
+
+      nextBtn.addEventListener('click', ()=> scrollByViewport(1));
+      prevBtn.addEventListener('click', ()=> scrollByViewport(-1));
+
+      // Optional: support arrow keys when viewport has focus
+      viewport.addEventListener('keydown', (e)=>{
+        if(e.key === 'ArrowRight') { e.preventDefault(); scrollByViewport(1); }
+        if(e.key === 'ArrowLeft')  { e.preventDefault(); scrollByViewport(-1); }
+      });
+
+      // Improve scroll snapping on some browsers by forcing small scroll padding
+      // so that center alignment works nicely even for small cards.
+      viewport.style.scrollPadding = 'calc(50% - 170px)';
+
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Digital Clock</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+
+        body {
+            font-family: 'Roboto Mono', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #282c34;
+            color: #ffffff;
+            flex-direction: column;
+        }
+
+        h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        #datetime {
+            font-size: 30px;
+            background-color: #3b3f47;
+            padding: 20px 40px;
+            text-align: center;
+            border-radius: 12px;
+            border: 2px solid #61dafb;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Live Digital Clock</h2>
+
+<p id="datetime"></p>
+
+<script>
+    function updateDateTime() {
+        const now = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const date = now.toLocaleDateString(undefined, options); // e.g., Monday, December 19, 2025
+        const time = now.toLocaleTimeString(); // e.g., 10:45:32 AM
+        document.getElementById("datetime").innerText = `${date}\n${time}`;
+    }
+
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+</script>
+
+</body>
+</html>

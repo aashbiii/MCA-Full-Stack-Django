@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial;
+        }
+
+        .calculator {
+            width: 260px;
+            margin: 60px auto;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        input[type=text] {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 10px;
+            text-align: right;
+            font-size: 18px;
+        }
+
+        button {
+            width: 55px;
+            height: 40px;
+            margin: 3px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .equal {
+            background-color: green;
+            color: white;
+        }
+
+        .clear {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="calculator">
+    <h3>Calculator</h3>
+    <input type="text" id="result" disabled>
+
+    <br>
+
+    <button onclick="result.value += '1'">1</button>
+    <button onclick="result.value += '2'">2</button>
+    <button onclick="result.value += '3'">3</button>
+    <button onclick="result.value += '+'">+</button>
+
+    <br>
+
+    <button onclick="result.value += '4'">4</button>
+    <button onclick="result.value += '5'">5</button>
+    <button onclick="result.value += '6'">6</button>
+    <button onclick="result.value += '-'">-</button>
+
+    <br>
+
+    <button onclick="result.value += '7'">7</button>
+    <button onclick="result.value += '8'">8</button>
+    <button onclick="result.value += '9'">9</button>
+    <button onclick="result.value += '*'">*</button>
+
+    <br>
+
+    <button onclick="result.value += '0'">0</button>
+    <button onclick="result.value += '/'">/</button>
+    <button class="clear" onclick="result.value = ''">C</button>
+    <button class="equal" onclick="result.value = eval(result.value)">=</button>
+</div>
+
+</body>
+</html>

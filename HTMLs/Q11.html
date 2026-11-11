@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student Details JSON</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Segoe UI, Arial, sans-serif;
+            background: #eef3f7;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #1e40af;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            background: #2563eb;
+            color: white;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Student Details</h2>
+        <table>
+            <tr>
+                <td class="label">Name</td>
+                <td id="name"></td>
+            </tr>
+            <tr>
+                <td class="label">Age</td>
+                <td id="age"></td>
+            </tr>
+            <tr>
+                <td class="label">Grade</td>
+                <td id="grade"></td>
+            </tr>
+        </table>
+        <button onclick="showStudent()">Load Details</button>
+    </div>
+    <script>
+        function showStudent() {
+            var student = {
+                "name": "Arjun Nair",
+                "age": 21,
+                "grade": "A"
+            };
+            document.getElementById("name").innerHTML = student.name;
+            document.getElementById("age").innerHTML = student.age;
+            document.getElementById("grade").innerHTML = student.grade;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dropdown Content Rendering</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Segoe UI, Arial, sans-serif;
+            background: #f1f5f9;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            background: #e8edf3;
+            padding: 15px;
+            border-radius: 6px;
+            min-height: 80px;
+        }
+
+        .title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #1e3a8a;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Select Career</h2>
+        <select onchange="showContent()" id="career">
+            <option value="">Choose Option</option>
+            <option value="developer">Software Developer</option>
+            <option value="designer">UI/UX Designer</option>
+            <option value="analyst">Data Analyst</option>
+            <option value="network">Network Engineer</option>
+        </select>
+        <div class="content" id="output">
+            Please select a career to view details.
+        </div>
+    </div>
+    <script>
+        function showContent() {
+            var value = document.getElementById("career").value;
+            var text = "";
+            if (value == "developer") {
+                text = "<div class='title'>Software Developer</div>Develops applications, websites and software systems.";
+            }
+            else if (value == "designer") {
+                text = "<div class='title'>UI/UX Designer</div>Designs user interfaces and improves user experience.";
+            }
+            else if (value == "analyst") {
+                text = "<div class='title'>Data Analyst</div>Analyzes data to support business decisions.";
+            }
+            else if (value == "network") {
+                text = "<div class='title'>Network Engineer</div>Manages and maintains computer networks.";
+            }
+            else {
+                text = "Please select a career to view details.";
+            }
+            document.getElementById("output").innerHTML = text;
+        }
+    </script>
+</body>
+
+</html>

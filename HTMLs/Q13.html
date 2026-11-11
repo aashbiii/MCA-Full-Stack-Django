@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Control Panel Theme</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Segoe UI, Arial, sans-serif;
+            transition: all 0.4s;
+        }
+
+        .panel {
+            width: 420px;
+            margin: 80px auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        .title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            margin-bottom: 20px;
+            opacity: 0.7;
+        }
+
+        .colors {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .colors div {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .preview {
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .default {
+            background: #f1f5f9;
+            color: #0f172a;
+        }
+
+        .default .panel {
+            background: white;
+        }
+
+        .default .preview {
+            background: #e2e8f0;
+        }
+
+        .night {
+            background: #020617;
+            color: #e2e8f0;
+        }
+
+        .night .panel {
+            background: #0f172a;
+        }
+
+        .night .preview {
+            background: #1e293b;
+        }
+
+        .sunset {
+            background: #fff7ed;
+            color: #7c2d12;
+        }
+
+        .sunset .panel {
+            background: #ffedd5;
+        }
+
+        .sunset .preview {
+            background: #fed7aa;
+        }
+
+        .forest {
+            background: #ecfdf5;
+            color: #064e3b;
+        }
+
+        .forest .panel {
+            background: #d1fae5;
+        }
+
+        .forest .preview {
+            background: #a7f3d0;
+        }
+    </style>
+</head>
+
+<body class="default">
+    <div class="panel">
+        <div class="title">Theme Control Panel</div>
+        <div class="subtitle">Select your preferred interface mode</div>
+        <div class="colors">
+            <div style="background:#94a3b8" onclick="setTheme('default')"></div>
+            <div style="background:#020617" onclick="setTheme('night')"></div>
+            <div style="background:#fb923c" onclick="setTheme('sunset')"></div>
+            <div style="background:#10b981" onclick="setTheme('forest')"></div>
+        </div>
+        <div class="preview">
+            This theme changes instantly using JavaScript.
+        </div>
+    </div>
+    <script>
+        function setTheme(t) {
+            document.body.className = t;
+        }
+    </script>
+</body>
+
+</html>

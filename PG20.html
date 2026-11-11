@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pyramid Pattern Generator</title>
+    <style>
+        body {
+            font-family: "Courier New", monospace;
+            text-align: center;
+            padding-top: 50px;
+            background-color: #f2f2f2;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        #inputSection input[type=number] {
+            padding: 10px;
+            width: 100px;
+            font-size: 16px;
+            border: 2px solid #007bff;
+            border-radius: 6px;
+            text-align: center;
+            margin-right: 10px;
+        }
+
+        #inputSection button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #inputSection button:hover {
+            background-color: #0056b3;
+        }
+
+        #pyramidSection pre {
+            font-size: 20px;
+            line-height: 1.2;
+            display: inline-block;
+            text-align: left;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+        }
+
+        #pyramidSection button {
+            display: block;
+            margin: 20px auto 0;
+            padding: 8px 16px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #pyramidSection button:hover {
+            background-color: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Pyramid Pattern Generator</h2>
+
+<!-- Input Section -->
+<div id="inputSection">
+    <input type="number" id="rowsInput" placeholder="Enter n" min="1">
+    <button onclick="generatePyramid()">Generate</button>
+</div>
+
+<!-- Pyramid Section -->
+<div id="pyramidSection" style="display:none;">
+    <pre id="pyramid"></pre>
+    <button onclick="resetPage()">Enter Another Number</button>
+</div>
+
+<script>
+    function generatePyramid() {
+        let rows = parseInt(document.getElementById("rowsInput").value);
+        if(isNaN(rows) || rows <= 0) {
+            alert("Please enter a valid positive number!");
+            return;
+        }
+
+        let pattern = "";
+        for(let i = 1; i <= rows; i++) {
+            let spaces = "\u00A0".repeat(rows - i);
+            let stars = "*".repeat(2 * i - 1);
+            pattern += spaces + stars + "\n";
+        }
+
+        document.getElementById("pyramid").innerText = pattern;
+
+        // Hide input section and show pyramid
+        document.getElementById("inputSection").style.display = "none";
+        document.getElementById("pyramidSection").style.display = "block";
+    }
+
+    function resetPage() {
+        document.getElementById("rowsInput").value = "";
+        document.getElementById("inputSection").style.display = "block";
+        document.getElementById("pyramidSection").style.display = "none";
+    }
+</script>
+
+</body>
+</html>

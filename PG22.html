@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vowel Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            background-color: #f2f2f2;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        input[type=text] {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+            border: 2px solid #007bff;
+            border-radius: 6px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Vowel Counter</h2>
+
+<input type="text" id="textInput" placeholder="Enter a string">
+<button onclick="countVowels()">Count Vowels</button>
+
+<p id="result"></p>
+
+<script>
+function countVowels() {
+    let str = document.getElementById("textInput").value;
+    let count = 0;
+
+    // Convert string to lowercase for simplicity
+    let lowerStr = str.toLowerCase();
+
+    // Loop through each character
+    for(let i = 0; i < lowerStr.length; i++) {
+        if("aeiou".includes(lowerStr[i])) {
+            count++;
+        }
+    }
+
+    document.getElementById("result").innerText = `Number of vowels: ${count}`;
+}
+</script>
+
+</body>
+</html>
